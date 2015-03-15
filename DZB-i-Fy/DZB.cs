@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
 using OpenTK;
 using GameFormatReader.Common;
 using grendgine_collada;
+using System;
 
 namespace DZBEditor
 {
@@ -15,80 +14,19 @@ namespace DZBEditor
         List<Group> Groups;
         List<SurfaceProperty> Properties;
 
+        [Obsolete("Information can be determined by Vertexes.Count")]
         int VertexCount;
+        [Obsolete("Information can be determined by Faces.Count")]
         int FaceCount;
+        [Obsolete("Information can be determined by Properties.Count")]
         int PropertyCount;
+        [Obsolete("Information can be determined by Groups.Count")]
         int GroupCount;
 
         int VertexStartOffset;
         int FaceStartOffset;
         int PropertyStartOffset;
         int GroupStartOffset;
-
-        public DzbFile(EndianBinaryReader stream)
-        {
-            VertexCount = stream.ReadInt32();
-            VertexStartOffset = stream.ReadInt32();
-
-            FaceCount = stream.ReadInt32();
-            FaceStartOffset = stream.ReadInt32();
-
-            stream.BaseStream.Position = 0x20;
-
-            GroupCount = stream.ReadInt32();
-            GroupStartOffset = stream.ReadInt32();
-
-            PropertyCount = stream.ReadInt32();
-            PropertyStartOffset = stream.ReadInt32();
-
-            Vertexes = new List<Vector3>();
-
-            for (int i = 0; i < VertexCount; i++)
-            {
-                Vector3 tempVec = new Vector3(stream.ReadSingle(), stream.ReadSingle(), stream.ReadSingle());
-
-                Vertexes.Add(tempVec);
-            }
-
-            Properties = new List<SurfaceProperty>();
-
-            stream.BaseStream.Position = PropertyStartOffset;
-
-            for (int i = 0; i < PropertyCount; i++)
-            {
-                SurfaceProperty tempProp = new SurfaceProperty(stream);
-
-                Properties.Add(tempProp);
-            }
-
-            Faces = new List<Face>();
-
-            stream.BaseStream.Position = FaceStartOffset;
-
-            for (int i = 0; i < FaceCount; i++)
-            {
-                Face tempFace = new Face(GetVertex(stream.ReadInt16()), GetVertex(stream.ReadInt16()), 
-                    GetVertex(stream.ReadInt16()), GetProperty(stream.ReadInt16()), (int)stream.ReadInt16());
-
-                Faces.Add(tempFace);
-            }
-
-            stream.BaseStream.Position = GroupStartOffset;
-
-            Groups = new List<Group>();
-
-            for (int i = 0; i < GroupCount; i++)
-            {
-                Group tempGroup = new Group(stream, i);
-
-                Groups.Add(tempGroup);
-            }
-
-            foreach (Face fac in Faces)
-            {
-                Groups[fac.GroupID].AddFace(fac);
-            }
-        }
 
         public Vector3 GetVertex(int index)
         {
@@ -101,6 +39,11 @@ namespace DZBEditor
         }
     }
 
+    /// <summary>
+    /// This is a prime canidate for having a "CollisionFace" style file (as part of CollisionFile)
+    /// which stores this information. That way the "DZB" class/file only contains fields actually
+    /// relevent to the DZB file itself.
+    /// </summary>
     class Face
     {
         public Vector3[] Verts;
@@ -166,6 +109,12 @@ namespace DZBEditor
 
         public Group(EndianBinaryReader stream, int thisGroupIndex)
         {
+            // Leave comments when you do things like this. :p
+            //
+            // "The first 4 bytes of the Group are a pointer to the string table
+            // so we store the position in the stream, go and read that string
+            // and then jump back to the Group file to continue reading it."
+
             int streamStart = (int)stream.BaseStream.Position;
 
             stream.BaseStream.Position = stream.ReadInt32();
@@ -282,29 +231,14 @@ namespace DZBEditor
 
         public SurfaceProperty(EndianBinaryReader stream)
         {
+            // A comment would be nice here too. I only understand it cause we had
+            // the discussion today, but I could look at this tomorrow and go "wtf"
             CamID = (byte)((stream.PeekReadInt32() & 0xFF));
             SoundEffect = (byte)((stream.PeekReadInt32() & 0x1F00) >> 8);
             ExitID = (byte)((stream.PeekReadInt32() & 0x7E000) >> 0xD);
             Color = (byte)((stream.ReadInt32() & 0x7F80000) >> 0x13);
 
             stream.BaseStream.Position += 0xC;
-        }
-    }
-
-    class ColladaFile
-    {
-        List<Group> Groups;
-
-        public ColladaFile(Grendgine_Collada inputFile)
-        {
-            Groups = new List<Group>();
-
-            for (int i = 0; i < inputFile.Library_Geometries.Geometry.Length; i++)
-            {
-                Group tempGroup = new Group(inputFile.Library_Geometries.Geometry[i], i);
-
-                Groups.Add(tempGroup);
-            }
         }
     }
 }
