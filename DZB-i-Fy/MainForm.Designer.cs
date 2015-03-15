@@ -35,7 +35,7 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GroupView = new System.Windows.Forms.TreeView();
             this.Viewport = new OpenTK.GLControl();
-            this.OpenFile = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.MenuBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,8 +99,8 @@
             // 
             // OpenFile
             // 
-            this.OpenFile.FileName = "openFileDialog1";
-            this.OpenFile.Filter = "DAE files|*.dae|DZB files|*.dzb";
+            this.openFileDialog.FileName = "openFileDialog1";
+            this.openFileDialog.Filter = "DAE files|*.dae|DZB files|*.dzb";
             // 
             // MainForm
             // 
@@ -128,7 +128,7 @@
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.TreeView GroupView;
         private OpenTK.GLControl Viewport;
-        private System.Windows.Forms.OpenFileDialog OpenFile;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripMenuItem exportDZBToolStripMenuItem;
     }
 }

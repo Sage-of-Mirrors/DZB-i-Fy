@@ -16,8 +16,10 @@ namespace DZBEditor
         //
         // So it doesn't make sense to store a reference to both, knowing that one will be null. At every possible
         // interaction moment, you'd have to check if one, or both, are null, and handle each one separately.
-        DzbFile LoadedDZB;
-        ColladaFile LoadedCollada;
+        //
+        // Now, we just have one type of collision file we care about. It doesn't matter whether it came from a 
+        // DAE file or a DZB file, all editor tools can assume it's a CollisionFile type and work with that.
+        private CollisionFile currentCollisionFile = null;
 
         public MainForm()
         {
@@ -34,8 +36,16 @@ namespace DZBEditor
             // and still use the same "Open" function without having to go modify that too. The more you can group UI related functions
             // together, and functions that operate on data/whatever (without knowing about the UI) the better.
 
-            if (OpenFile.ShowDialog() == DialogResult.OK)
-                Open(OpenFile.FileName);
+            // We can check if they've already got a file open here and warn them about losing changes if we want.
+            if (currentCollisionFile != null)
+            {
+                // Create a pop-up dialog here that asks them if they want to save changes before leaving or something.
+                // If they don't want to leave (ie: hit the cancel button) then just return from this function and skip
+                // opening the openFileDialog and all that jazz.
+            }
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+                Open(openFileDialog.FileName);
         }
 
         private void Open(string filePath)
@@ -71,13 +81,14 @@ namespace DZBEditor
                 // original code. :)
                 if (string.Compare(fileExtension, ".dzb", true) == 0)
                 {
-                    LoadedDZB = new DzbFile(streamReader);
+                    currentCollisionFile = new CollisionFile();
+                    currentCollisionFile.LoadFromDZBFile(streamReader);
                     Console.WriteLine("Loaded new dzb from existng dzb file {0}.", filePath);
                 }
                 else if (string.Compare(fileExtension, ".dae", true) == 0)
                 {
-                    Grendgine_Collada collada = Grendgine_Collada.Grendgine_Load_File(filePath);
-                    LoadedCollada = new ColladaFile(collada);
+                    currentCollisionFile = new CollisionFile();
+                    currentCollisionFile.LoadFromCollada(filePath);
                     Console.WriteLine("Loaded new dzb from dae file {0}.", filePath);
                 }
                 else

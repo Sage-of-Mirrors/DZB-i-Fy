@@ -393,6 +393,7 @@
     <Compile Include="Collada Tool\Types\Grendgine_Collada_SID_Name_Float.cs" />
     <Compile Include="Collada Tool\Types\Grendgine_Collada_SID_Name_String.cs" />
     <Compile Include="Collada Tool\Types\Grendgine_Collada_String_Array_String.cs" />
+    <Compile Include="CollisionFile.cs" />
     <Compile Include="DZB.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
