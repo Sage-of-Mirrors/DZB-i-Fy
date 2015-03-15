@@ -290,4 +290,21 @@ namespace DZBEditor
             stream.BaseStream.Position += 0xC;
         }
     }
+
+    class ColladaFile
+    {
+        List<Group> Groups;
+
+        public ColladaFile(Grendgine_Collada inputFile)
+        {
+            Groups = new List<Group>();
+
+            for (int i = 0; i < inputFile.Library_Geometries.Geometry.Length; i++)
+            {
+                Group tempGroup = new Group(inputFile.Library_Geometries.Geometry[i], i);
+
+                Groups.Add(tempGroup);
+            }
+        }
+    }
 }

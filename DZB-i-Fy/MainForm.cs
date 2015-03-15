@@ -8,12 +8,14 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using GameFormatReader.Common;
+using grendgine_collada;
 
 namespace DZBEditor
 {
     public partial class MainForm : Form
     {
         DzbFile LoadedDZB;
+        ColladaFile LoadedCollada;
 
         public MainForm()
         {
@@ -40,7 +42,9 @@ namespace DZBEditor
 
                 if (Path.GetExtension(OpenFile.FileName) == ".dae")
                 {
+                    Grendgine_Collada collada = Grendgine_Collada.Grendgine_Load_File(OpenFile.FileName);
 
+                    LoadedCollada = new ColladaFile(collada);
                 }
             }
         }
