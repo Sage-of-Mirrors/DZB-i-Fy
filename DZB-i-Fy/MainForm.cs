@@ -8,6 +8,14 @@ namespace DZBEditor
 {
     public partial class MainForm : Form
     {
+        // So this confuses me. The idea behind most editors (and probably should be for this one too)
+        // is that they accept a variety of input files and transform the data into one common file format.
+        // By placing them into a single, common, file format, the rest of the editor only has to care about
+        // a single format, and it never has to care about a specific source format once loaded.
+        //
+        //
+        // So it doesn't make sense to store a reference to both, knowing that one will be null. At every possible
+        // interaction moment, you'd have to check if one, or both, are null, and handle each one separately.
         DzbFile LoadedDZB;
         ColladaFile LoadedCollada;
 
@@ -57,14 +65,26 @@ namespace DZBEditor
             {
                 EndianBinaryReader streamReader = new EndianBinaryReader(fileStream, Endian.Big);
 
-                if (string.Compare(fileExtension, ".dzb") == 0)
+                // We use string.Compare(string, string, bool) here to compare them case insensitive.
+                // sometimes things get funny and people end up with weird extension capitalization,
+                // like .DAE which would have failed to load a perfectly good dae file under your
+                // original code. :)
+                if (string.Compare(fileExtension, ".dzb", true) == 0)
                 {
                     LoadedDZB = new DzbFile(streamReader);
+                    Console.WriteLine("Loaded new dzb from existng dzb file {0}.", filePath);
                 }
-                else
+                else if (string.Compare(fileExtension, ".dae", true) == 0)
                 {
                     Grendgine_Collada collada = Grendgine_Collada.Grendgine_Load_File(filePath);
                     LoadedCollada = new ColladaFile(collada);
+                    Console.WriteLine("Loaded new dzb from dae file {0}.", filePath);
+                }
+                else
+                {
+                    // You can only get to this else assuming you called Open from outside of the UI, which is now possible to do
+                    // thanks to our refactor of how the Open file worked.
+                    Console.WriteLine("Failed to open file {0} - Unknown file extension. Only .dzb and .dae types are supported.", filePath);
                 }
             }
         }
