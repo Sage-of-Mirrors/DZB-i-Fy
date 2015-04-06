@@ -1,0 +1,16 @@
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Release\fs.glsl
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Release\vs.glsl
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Release\DZB-i-Fy.exe
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Release\DZB-i-Fy.pdb
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Release\GameFormatReader.dll
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Release\OpenTK.dll
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Release\OpenTK.GLControl.dll
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Release\OpenTK.xml
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Release\OpenTK.GLControl.xml
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Release\DZBEditor.MainForm.resources
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Release\DZBEditor.Properties.Resources.resources
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Release\DZBEditor.GroupControl.resources
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Release\DZBEditor.PropertyControl.resources
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Release\DZB-i-Fy.csproj.GenerateResource.Cache
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Release\DZB-i-Fy.exe
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Release\DZB-i-Fy.pdb

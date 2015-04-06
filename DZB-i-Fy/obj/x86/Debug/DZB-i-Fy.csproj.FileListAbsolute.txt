@@ -24,3 +24,18 @@ C:\Users\Dylan\documents\visual studio 2010\Projects\DZB-i-Fy\DZB-i-Fy\obj\x86\D
 C:\Users\Dylan\documents\visual studio 2010\Projects\DZB-i-Fy\DZB-i-Fy\obj\x86\Debug\DZBEditor.Properties.Resources.resources
 C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Debug\DZB-i-Fy.exe
 C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Debug\DZB-i-Fy.pdb
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Debug\DZB-i-Fy.exe
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Debug\DZB-i-Fy.pdb
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Debug\GameFormatReader.dll
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Debug\OpenTK.dll
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Debug\OpenTK.GLControl.dll
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Debug\OpenTK.xml
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Debug\OpenTK.GLControl.xml
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Debug\DZB-i-Fy.csprojResolveAssemblyReference.cache
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Debug\DZBEditor.MainForm.resources
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Debug\DZBEditor.Properties.Resources.resources
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Debug\DZB-i-Fy.csproj.GenerateResource.Cache
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Debug\DZBEditor.GroupControl.resources
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\obj\x86\Debug\DZBEditor.PropertyControl.resources
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Debug\fs.glsl
+C:\Users\Dylan\Documents\GitHub\DZB-i-Fy\DZB-i-Fy\bin\Debug\vs.glsl

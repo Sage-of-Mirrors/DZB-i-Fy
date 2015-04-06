@@ -42,6 +42,7 @@
     <Reference Include="OpenTK.GLControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Input.Manipulations" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Camera.cs" />
+    <Compile Include="EditorObjects.cs" />
     <Compile Include="Collada Tool\Collada_B_Rep\Curves\Grendgine_Collada_Circle.cs" />
     <Compile Include="Collada Tool\Collada_B_Rep\Curves\Grendgine_Collada_Curve.cs" />
     <Compile Include="Collada Tool\Collada_B_Rep\Curves\Grendgine_Collada_Curves.cs" />
@@ -389,7 +392,7 @@
     <Compile Include="Collada Tool\Types\Grendgine_Collada_SID_Name_Float.cs" />
     <Compile Include="Collada Tool\Types\Grendgine_Collada_SID_Name_String.cs" />
     <Compile Include="Collada Tool\Types\Grendgine_Collada_String_Array_String.cs" />
-    <Compile Include="DZB.cs" />
+    <Compile Include="Models.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,6 +401,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GroupControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GroupControl.Designer.cs">
+      <DependentUpon>GroupControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PropertyControl.Designer.cs">
+      <DependentUpon>PropertyControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -411,6 +426,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="GroupControl.resx">
+      <DependentUpon>GroupControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyControl.resx">
+      <DependentUpon>PropertyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="fs.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -420,6 +444,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="vs.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="GameFormatReader.dll" />

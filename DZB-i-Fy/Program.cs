@@ -10,12 +10,14 @@ namespace DZBEditor
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [STAThread]
+        [STAThreadAttribute()]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
+
+            Clipboard.Clear();
         }
     }
 }
